@@ -1,0 +1,65 @@
+<%- include("../partials/header") %> 
+<%- include("../partials/navbar") %>
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+
+      <h1 display="6">Edit Product</h1>
+
+      <form action="/products/<%= product._id %>?_method=PATCH" method="POST">
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name: </label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            placeholder="Name"
+            value="<%= product.name %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="img" class="form-label">Image Url: </label>
+          <input
+            type="text"
+            placeholder="Image Url"
+            id="img"
+            name="img"
+            class="form-control"
+            value=" <%= product.img %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">&#x20b9</span>
+            <input type="text" class="form-control" id="price" name="price" placeholder="Price" aria-describedby="basic-addon1" value=" <%= product.price %>">
+          </div>
+        </div>
+
+        <div class="mg-3">
+          <label for="desc" class="form-label">Description: </label>
+          <textarea
+            name="desc"
+            id="desc"
+            rows="6"
+            class="form-control" placeholder="Product Description..."
+          ><%= product.desc %></textarea>
+
+        </div>
+
+        <!-- <br/>
+        <br/> -->
+        <button type="submit" class="btn btn-success btn-small">Save</button>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+<%- include("../partials/footer") %>
